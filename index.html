@@ -24,6 +24,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             background-color: var(--dark);
             color: var(--light);
@@ -39,9 +43,9 @@
         
         /* تنسيقات الهيدر */
         header {
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(10px);
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -57,23 +61,16 @@
         }
         
         .logo {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 22px;
             color: white;
             box-shadow: 0 0 20px rgba(76, 201, 240, 0.5);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 20px rgba(76, 201, 240, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(76, 201, 240, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(76, 201, 240, 0.5); }
         }
         
         nav ul {
@@ -82,7 +79,7 @@
         }
         
         nav ul li {
-            margin-left: 25px;
+            margin-left: 20px;
         }
         
         nav ul li a {
@@ -96,25 +93,13 @@
             overflow: hidden;
         }
         
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+        nav ul li a.active {
             background: var(--gradient);
-            transition: all 0.3s ease;
-            z-index: -1;
-            border-radius: 30px;
-        }
-        
-        nav ul li a:hover::before {
-            left: 0;
-        }
-        
-        nav ul li a:hover {
             color: white;
+        }
+        
+        nav ul li a:not(.active):hover {
+            background: rgba(255, 255, 255, 0.1);
         }
         
         /* تنسيقات المحتوى الرئيسي */
@@ -182,38 +167,22 @@
             opacity: 0.9;
         }
         
-        .btn {
-            display: inline-block;
-            background: var(--gradient);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
+        .scroll-indicator {
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.5s ease;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--accent);
+            animation: bounce 2s infinite;
         }
         
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
         
         /* تنسيقات الأقسام */
@@ -256,28 +225,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             z-index: 1;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
             opacity: 0;
-            transition: all 0.3s ease;
-            z-index: -1;
+            transform: translateY(20px);
         }
         
-        .card:hover::before {
-            opacity: 0.1;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .card-img {
@@ -297,18 +251,62 @@
             font-size: 1.5rem;
         }
         
-        /* تنسيقات الأسئلة والأجوبة */
-        .qa-section {
+        /* تنسيقات علامات التبويب */
+        .tabs-section {
             background: rgba(255, 255, 255, 0.02);
             border-radius: 20px;
-            padding: 50px;
+            padding: 40px;
             margin-top: 50px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        .qa-container {
+        .tabs-container {
             max-width: 900px;
             margin: 0 auto;
+        }
+        
+        .tabs-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            color: var(--light);
+            padding: 12px 25px;
+            margin: 0 10px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .tab-btn.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tab-btn:not(.active):hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .tab-content.active {
+            display: block;
         }
         
         .qa-item {
@@ -393,6 +391,13 @@
             border-radius: 15px;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .value-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .value-item:hover {
@@ -436,6 +441,13 @@
             position: relative;
             margin-bottom: 50px;
             width: 45%;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .timeline-item:nth-child(odd) {
@@ -526,7 +538,7 @@
             }
             
             nav ul li {
-                margin: 10px 0;
+                margin: 5px 0;
             }
             
             .timeline-item {
@@ -544,6 +556,17 @@
                 right: -38px !important;
                 left: auto !important;
             }
+            
+            .tabs-header {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 250px;
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
@@ -557,8 +580,8 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#intro">الرحلة</a></li>
-                        <li><a href="#qa">اكتشف</a></li>
+                        <li><a href="#intro" class="active">الرحلة</a></li>
+                        <li><a href="#explore">اكتشف</a></li>
                         <li><a href="#goals">الأهداف</a></li>
                         <li><a href="#initiatives">المبادرات</a></li>
                         <li><a href="#values">القيم</a></li>
@@ -575,7 +598,10 @@
         <div class="hero-content">
             <h1>رحلة في عالم التفاهم</h1>
             <p>اكتشف كيف تبني الإمارات جسوراً بين الثقافات</p>
-            <a href="#intro" class="btn">ابدأ الرحلة</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>مرر للأسفل</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -609,66 +635,78 @@
         </div>
     </section>
 
-    <!-- قسم الأسئلة والأجوبة -->
-    <section id="qa">
+    <!-- قسم الاستكشاف -->
+    <section id="explore">
         <div class="container">
             <h2 class="section-title">اكتشف عالم التفاهم</h2>
-            <div class="qa-section">
-                <div class="qa-container">
-                    <div class="qa-item active">
-                        <div class="question">
-                            <h3>كيف تساهم الإمارات في تعزيز التفاهم العالمي؟</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="answer">
-                            <div class="answer-content">
-                                <p>تساهم الإمارات في تعزيز التفاهم العالمي من خلال:</p>
-                                <ul>
-                                    <li><strong>إنشاء وزارة التسامح:</strong> أول وزارة من نوعها في العالم تهدف إلى تعزيز قيم التسامح والتعايش</li>
-                                    <li><strong>المؤتمرات الدولية:</strong> استضافة مؤتمرات حوار الأديان والثقافات مثل مؤتمر الأخوة الإنسانية</li>
-                                    <li><strong>المبادرات التعليمية:</strong> دمج مفاهيم المواطنة العالمية في المناهج الدراسية</li>
-                                    <li><strong>المتاحف الثقافية:</strong> مثل متحف اللوفر أبوظبي الذي يجسد حوار الحضارات</li>
-                                    <li><strong>الجاليات المتعددة:</strong> احتضان أكثر من 200 جالية تعيش في تناغم وسلام</li>
-                                </ul>
+            <div class="tabs-section">
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="tab1">مبادرات الإمارات</button>
+                        <button class="tab-btn" data-tab="tab2">دور الطلاب</button>
+                        <button class="tab-btn" data-tab="tab3">مبادئ التفاهم</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="tab1">
+                        <div class="qa-item active">
+                            <div class="question">
+                                <h3>كيف تساهم الإمارات في تعزيز التفاهم العالمي؟</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <div class="answer-content">
+                                    <p>تساهم الإمارات في تعزيز التفاهم العالمي من خلال:</p>
+                                    <ul>
+                                        <li><strong>إنشاء وزارة التسامح:</strong> أول وزارة من نوعها في العالم تهدف إلى تعزيز قيم التسامح والتعايش</li>
+                                        <li><strong>المؤتمرات الدولية:</strong> استضافة مؤتمرات حوار الأديان والثقافات مثل مؤتمر الأخوة الإنسانية</li>
+                                        <li><strong>المبادرات التعليمية:</strong> دمج مفاهيم المواطنة العالمية في المناهج الدراسية</li>
+                                        <li><strong>المتاحف الثقافية:</strong> مثل متحف اللوفر أبوظبي الذي يجسد حوار الحضارات</li>
+                                        <li><strong>الجاليات المتعددة:</strong> احتضان أكثر من 200 جالية تعيش في تناغم وسلام</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="qa-item">
-                        <div class="question">
-                            <h3>ما دور الطلاب في تعزيز التفاهم العالمي؟</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="answer">
-                            <div class="answer-content">
-                                <p>يمكن للطلاب المساهمة في تعزيز التفاهم العالمي من خلال:</p>
-                                <ul>
-                                    <li><strong>الانفتاح الثقافي:</strong> التعرف على ثقافات وزملاء من خلفيات مختلفة</li>
-                                    <li><strong>تعلم اللغات:</strong> إتقان لغات جديدة للتواصل مع أناس من ثقافات أخرى</li>
-                                    <li><strong>المشاركة في برامج التبادل الطلابي:</strong> للتعرف على ثقافات أخرى مباشرة</li>
-                                    <li><strong>الاحتفاء بالتنوع:</strong> المشاركة في فعاليات الأعياد والمناسبات الثقافية المختلفة</li>
-                                    <li><strong>التواصل الرقمي المسؤول:</strong> استخدام وسائل التواصل لبناء جسور مع أقرانهم حول العالم</li>
-                                </ul>
+                    <div class="tab-content" id="tab2">
+                        <div class="qa-item">
+                            <div class="question">
+                                <h3>ما دور الطلاب في تعزيز التفاهم العالمي؟</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <div class="answer-content">
+                                    <p>يمكن للطلاب المساهمة في تعزيز التفاهم العالمي من خلال:</p>
+                                    <ul>
+                                        <li><strong>الانفتاح الثقافي:</strong> التعرف على ثقافات وزملاء من خلفيات مختلفة</li>
+                                        <li><strong>تعلم اللغات:</strong> إتقان لغات جديدة للتواصل مع أناس من ثقافات أخرى</li>
+                                        <li><strong>المشاركة في برامج التبادل الطلابي:</strong> للتعرف على ثقافات أخرى مباشرة</li>
+                                        <li><strong>الاحتفاء بالتنوع:</strong> المشاركة في فعاليات الأعياد والمناسبات الثقافية المختلفة</li>
+                                        <li><strong>التواصل الرقمي المسؤول:</strong> استخدام وسائل التواصل لبناء جسور مع أقرانهم حول العالم</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="qa-item">
-                        <div class="question">
-                            <h3>ما هي مبادئ التفاهم العالمي الأساسية؟</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="answer">
-                            <div class="answer-content">
-                                <p>يتأسس التفاهم العالمي على عدة مبادئ أساسية:</p>
-                                <ul>
-                                    <li><strong>احترام الكرامة الإنسانية:</strong> الاعتراف بقيمة كل إنسان بغض النظر عن خلفيته</li>
-                                    <li><strong>التعاطف:</strong> القدرة على فهم مشاعر الآخرين ورؤية العالم من منظورهم</li>
-                                    <li><strong>الفضول الثقافي:</strong> الرغبة في التعرف على الثقافات والتقاليد المختلفة</li>
-                                    <li><strong>التفكير النقدي:</strong> تحليل المعلومات من وجهات نظر متعددة</li>
-                                    <li><strong>المسؤولية العالمية:</strong> الوعي بتأثير أفعالنا على الآخرين حول العالم</li>
-                                    <li><strong>التعاون:</strong> العمل معاً لتحقيق أهداف مشتركة تفيد البشرية</li>
-                                </ul>
+                    <div class="tab-content" id="tab3">
+                        <div class="qa-item">
+                            <div class="question">
+                                <h3>ما هي مبادئ التفاهم العالمي الأساسية؟</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <div class="answer-content">
+                                    <p>يتأسس التفاهم العالمي على عدة مبادئ أساسية:</p>
+                                    <ul>
+                                        <li><strong>احترام الكرامة الإنسانية:</strong> الاعتراف بقيمة كل إنسان بغض النظر عن خلفيته</li>
+                                        <li><strong>التعاطف:</strong> القدرة على فهم مشاعر الآخرين ورؤية العالم من منظورهم</li>
+                                        <li><strong>الفضول الثقافي:</strong> الرغبة في التعرف على الثقافات والتقاليد المختلفة</li>
+                                        <li><strong>التفكير النقدي:</strong> تحليل المعلومات من وجهات نظر متعددة</li>
+                                        <li><strong>المسؤولية العالمية:</strong> الوعي بتأثير أفعالنا على الآخرين حول العالم</li>
+                                        <li><strong>التعاون:</strong> العمل معاً لتحقيق أهداف مشتركة تفيد البشرية</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -802,29 +840,18 @@
             floatingContainer.appendChild(element);
         }
         
-        // تنعيم التمرير عند النقر على الروابط
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // تفعيل علامات التبويب
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // إزالة النشاط من جميع الأزرار والمحتويات
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+                // إضافة النشاط للزر والمحتوى المحدد
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
             });
-        });
-        
-        // إضافة تأثير عند التمرير للهيدر
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(26, 26, 46, 0.95)';
-            } else {
-                header.style.background = 'rgba(26, 26, 46, 0.9)';
-            }
         });
         
         // تفعيل الأسئلة والأجوبة
@@ -844,17 +871,36 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
         
-        document.querySelectorAll('.card, .value-item, .timeline-content').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        document.querySelectorAll('.card, .value-item, .timeline-item').forEach(el => {
             observer.observe(el);
+        });
+        
+        // تحديث التنقل النشط عند التمرير
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
