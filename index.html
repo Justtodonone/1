@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رحلة في عالم التفاهم العالمي</title>
+    <title>التفاهم العالمي - رؤية الإمارات للتواصل الحضاري</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* تنسيقات عامة */
@@ -12,9 +12,11 @@
             --primary-dark: #1F6B41;
             --secondary: #FF6B35;
             --accent: #4CC9F0;
+            --gold: #D4AF37;
             --dark: #1A1A2E;
             --light: #F8F9FA;
             --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --gold-gradient: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%);
         }
         
         * {
@@ -148,7 +150,7 @@
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
         }
         
@@ -377,6 +379,37 @@
             transform: rotate(180deg);
         }
         
+        /* تنسيقات الإحصائيات */
+        .stats-section {
+            background: var(--gradient);
+            padding: 80px 0;
+            border-radius: 20px;
+            margin: 50px 0;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         /* تنسيقات القيم */
         .values-grid {
             display: grid;
@@ -581,8 +614,9 @@
                 <nav>
                     <ul>
                         <li><a href="#intro" class="active">الرحلة</a></li>
+                        <li><a href="#importance">الأهمية</a></li>
                         <li><a href="#explore">اكتشف</a></li>
-                        <li><a href="#goals">الأهداف</a></li>
+                        <li><a href="#stats">الإنجازات</a></li>
                         <li><a href="#initiatives">المبادرات</a></li>
                         <li><a href="#values">القيم</a></li>
                     </ul>
@@ -596,11 +630,11 @@
         <div class="hero-bg"></div>
         <div class="floating-elements" id="floatingElements"></div>
         <div class="hero-content">
-            <h1>رحلة في عالم التفاهم</h1>
-            <p>اكتشف كيف تبني الإمارات جسوراً بين الثقافات</p>
+            <h1>التفاهم العالمي: رؤية الإمارات الاستراتيجية</h1>
+            <p>بناء جسور التواصل بين الحضارات في عالم متعدد الثقافات</p>
         </div>
         <div class="scroll-indicator">
-            <span>مرر للأسفل</span>
+            <span>اكتشف الرحلة</span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
@@ -608,27 +642,54 @@
     <!-- قسم المقدمة -->
     <section id="intro">
         <div class="container">
-            <h2 class="section-title">رحلة نحو عالم مترابط</h2>
+            <h2 class="section-title">رؤية استراتيجية لعالم مترابط</h2>
             <div class="card-container">
                 <div class="card">
                     <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="card-content">
-                        <h3>ما هو التفاهم العالمي؟</h3>
-                        <p>هو القدرة على فهم القضايا العالمية والتفاعل مع أناس من خلفيات ثقافية مختلفة باحترام وتعاطف. في عالمنا المتصل اليوم، أصبح التفاهم العالمي مهارة أساسية للطلاب ليكونوا مواطنين عالميين مسؤولين.</p>
+                        <h3>السياق العالمي</h3>
+                        <p>في عصر العولمة والرقمنة، أصبح التفاهم بين الثقافات ضرورة استراتيجية للتعايش السلمي والتنمية المستدامة. الإمارات تدرك هذه الحقيقة وتعمل على ترسيخ مكانتها كجسر للتواصل الحضاري.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551135049-36d4d4ccf5e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="card-content">
-                        <h3>دور الإمارات الرائد</h3>
-                        <p>تسعى دولة الإمارات العربية المتحدة لترسيخ مكانتها كجسر للتواصل بين الحضارات والثقافات المختلفة. وفي إطار رؤيتها الاستراتيجية، أولت الدولة اهتماماً كبيراً لتعزيز قيم التسامح والحوار الحضاري.</p>
+                        <h3>الرؤية الإماراتية</h3>
+                        <p>تتبنى الإمارات رؤية طموحة تجعل منها منصة عالمية للحوار بين الثقافات والأديان، مستفيدة من موقعها الجغرافي الاستراتيجي وتنوع مجتمعها الذي يضم أكثر من 200 جالية.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="card-content">
-                        <h3>لماذا نهتم؟</h3>
-                        <p>لأن العالم أصبح قرية صغيرة، وتفاعلنا مع الثقافات الأخرى أصبح جزءاً من حياتنا اليومية. التفاهم العالمي يساعد في بناء عالم أكثر سلاماً وتفاهماً، ويمكن الأفراد من التعاون لحل المشكلات العالمية.</p>
+                        <h3>الأبعاد الاستراتيجية</h3>
+                        <p>يمثل التفاهم العالمي ركيزة أساسية في رؤية الإمارات 2021 ومئوية الإمارات 2071، حيث تسعى لبناء اقتصاد معرفي ومركز عالمي للابتكار يقوم على التنوع الثقافي والتعايش الإنساني.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأهمية -->
+    <section id="importance">
+        <div class="container">
+            <h2 class="section-title">الأهمية الاستراتيجية للتفاهم العالمي</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-chart-line"></i> البعد الاقتصادي</h3>
+                        <p>يعزز التفاهم العالمي فرص الاستثمار والتجارة الدولية، ويدعم تنويع الاقتصاد، ويجذب الكفاءات العالمية، مما يسهم في تحقيق الرؤية الاقتصادية للإمارات.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-shield-alt"></i> البعد الأمني</h3>
+                        <p>يسهم التفاهم بين الثقافات في تعزيز الأمن والاستقرار الإقليمي والعالمي، ويحد من ظواهر التطرف والعنف، ويدعم جهود مكافحة الإرهاب.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-handshake"></i> البعد الدبلوماسي</h3>
+                        <p>يعزز التفاهم العالمي مكانة الإمارات كوسيط دولي في حل النزاعات، ويدعم جهودها الإنسانية، ويعزز شراكاتها الاستراتيجية مع دول العالم.</p>
                     </div>
                 </div>
             </div>
@@ -638,30 +699,29 @@
     <!-- قسم الاستكشاف -->
     <section id="explore">
         <div class="container">
-            <h2 class="section-title">اكتشف عالم التفاهم</h2>
+            <h2 class="section-title">الإطار الاستراتيجي للتفاهم العالمي</h2>
             <div class="tabs-section">
                 <div class="tabs-container">
                     <div class="tabs-header">
-                        <button class="tab-btn active" data-tab="tab1">مبادرات الإمارات</button>
-                        <button class="tab-btn" data-tab="tab2">دور الطلاب</button>
-                        <button class="tab-btn" data-tab="tab3">مبادئ التفاهم</button>
+                        <button class="tab-btn active" data-tab="tab1">الرؤية الحكومية</button>
+                        <button class="tab-btn" data-tab="tab2">الأطر المؤسسية</button>
+                        <button class="tab-btn" data-tab="tab3">الشراكات العالمية</button>
                     </div>
                     
                     <div class="tab-content active" id="tab1">
                         <div class="qa-item active">
                             <div class="question">
-                                <h3>كيف تساهم الإمارات في تعزيز التفاهم العالمي؟</h3>
+                                <h3>كيف تترجم الإمارات رؤيتها للتفاهم العالمي إلى سياسات فعلية؟</h3>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="answer">
                                 <div class="answer-content">
-                                    <p>تساهم الإمارات في تعزيز التفاهم العالمي من خلال:</p>
+                                    <p>تتبنى الإمارات منهجية متكاملة تشمل:</p>
                                     <ul>
-                                        <li><strong>إنشاء وزارة التسامح:</strong> أول وزارة من نوعها في العالم تهدف إلى تعزيز قيم التسامح والتعايش</li>
-                                        <li><strong>المؤتمرات الدولية:</strong> استضافة مؤتمرات حوار الأديان والثقافات مثل مؤتمر الأخوة الإنسانية</li>
-                                        <li><strong>المبادرات التعليمية:</strong> دمج مفاهيم المواطنة العالمية في المناهج الدراسية</li>
-                                        <li><strong>المتاحف الثقافية:</strong> مثل متحف اللوفر أبوظبي الذي يجسد حوار الحضارات</li>
-                                        <li><strong>الجاليات المتعددة:</strong> احتضان أكثر من 200 جالية تعيش في تناغم وسلام</li>
+                                        <li><strong>الاستراتيجيات الوطنية:</strong> إدماج مفاهيم التفاهم العالمي في الاستراتيجيات الوطنية للتعليم والثقافة والشباب</li>
+                                        <li><strong>التشريعات الداعمة:</strong> سن قوانين تجرم التمييز والعنصرية وتكرس مبادئ التسامح والتعايش</li>
+                                        <li><strong>المؤشرات القياسية:</strong> تطوير مؤشرات لقياس مستوى التفاهم العالمي وتتبع التقدم المحرز</li>
+                                        <li><strong>التمويل المستدام:</strong> تخصيص موازنات لدعم برامج ومبادرات التفاهم العالمي</li>
                                     </ul>
                                 </div>
                             </div>
@@ -671,18 +731,17 @@
                     <div class="tab-content" id="tab2">
                         <div class="qa-item">
                             <div class="question">
-                                <h3>ما دور الطلاب في تعزيز التفاهم العالمي؟</h3>
+                                <h3>ما الأطر المؤسسية التي أنشأتها الإمارات لتعزيز التفاهم العالمي؟</h3>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="answer">
                                 <div class="answer-content">
-                                    <p>يمكن للطلاب المساهمة في تعزيز التفاهم العالمي من خلال:</p>
+                                    <p>أنشأت الإمارات منظومة مؤسسية متكاملة تشمل:</p>
                                     <ul>
-                                        <li><strong>الانفتاح الثقافي:</strong> التعرف على ثقافات وزملاء من خلفيات مختلفة</li>
-                                        <li><strong>تعلم اللغات:</strong> إتقان لغات جديدة للتواصل مع أناس من ثقافات أخرى</li>
-                                        <li><strong>المشاركة في برامج التبادل الطلابي:</strong> للتعرف على ثقافات أخرى مباشرة</li>
-                                        <li><strong>الاحتفاء بالتنوع:</strong> المشاركة في فعاليات الأعياد والمناسبات الثقافية المختلفة</li>
-                                        <li><strong>التواصل الرقمي المسؤول:</strong> استخدام وسائل التواصل لبناء جسور مع أقرانهم حول العالم</li>
+                                        <li><strong>وزارة التسامح والتعايش:</strong> أول وزارة من نوعها في العالم متخصصة في تعزيز قيم التسامح</li>
+                                        <li><strong>اللجنة الوطنية للتسامح:</strong> تنسيق الجهود الوطنية في مجال تعزيز القيم الإنسانية</li>
+                                        <li><strong>مركز حوار الحضارات:</strong> منصة للبحث والحوار حول قضايا التعايش بين الثقافات</li>
+                                        <li><strong>المجالس المجتمعية:</strong> مجالس تمثل مختلف الجاليات وتعزز الاندماج الاجتماعي</li>
                                     </ul>
                                 </div>
                             </div>
@@ -692,19 +751,17 @@
                     <div class="tab-content" id="tab3">
                         <div class="qa-item">
                             <div class="question">
-                                <h3>ما هي مبادئ التفاهم العالمي الأساسية؟</h3>
+                                <h3>كيف تتعاون الإمارات مع المنظمات الدولية في هذا المجال؟</h3>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="answer">
                                 <div class="answer-content">
-                                    <p>يتأسس التفاهم العالمي على عدة مبادئ أساسية:</p>
+                                    <p>تتعاون الإمارات مع منظومة الأمم المتحدة والمنظمات الدولية من خلال:</p>
                                     <ul>
-                                        <li><strong>احترام الكرامة الإنسانية:</strong> الاعتراف بقيمة كل إنسان بغض النظر عن خلفيته</li>
-                                        <li><strong>التعاطف:</strong> القدرة على فهم مشاعر الآخرين ورؤية العالم من منظورهم</li>
-                                        <li><strong>الفضول الثقافي:</strong> الرغبة في التعرف على الثقافات والتقاليد المختلفة</li>
-                                        <li><strong>التفكير النقدي:</strong> تحليل المعلومات من وجهات نظر متعددة</li>
-                                        <li><strong>المسؤولية العالمية:</strong> الوعي بتأثير أفعالنا على الآخرين حول العالم</li>
-                                        <li><strong>التعاون:</strong> العمل معاً لتحقيق أهداف مشتركة تفيد البشرية</li>
+                                        <li><strong>اليونسكو:</strong> شراكات في مجال التعليم والثقافة وبرامج التبادل الطلابي</li>
+                                        <li><strong>التحالف الحضاري للأمم المتحدة:</strong> الإمارات عضو مؤسس وتدعم أنشطته حول العالم</li>
+                                        <li><strong>منظمة التعاون الإسلامي:</strong> تعزيز الحوار بين الأديان والثقافات</li>
+                                        <li><strong>المنتدى الاقتصادي العالمي:</strong> المشاركة في مبادرات القيادة العالمية والمواطنة المسؤولة</li>
                                     </ul>
                                 </div>
                             </div>
@@ -715,30 +772,27 @@
         </div>
     </section>
 
-    <!-- قسم الأهداف -->
-    <section id="goals">
+    <!-- قسم الإحصائيات -->
+    <section id="stats">
         <div class="container">
-            <h2 class="section-title">أهدافنا المشتركة</h2>
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="card-content">
-                        <h3><i class="fas fa-handshake"></i> تعزيز قيم التسامح</h3>
-                        <p>تعمل دولة الإمارات على ترسيخ قيم التسامح والسلام بين طلبة المدارس والجامعات، ونبذ العنصرية والتمييز والكراهية في المجتمع.</p>
+            <h2 class="section-title">إنجازات ومؤشرات الأداء</h2>
+            <div class="stats-section">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">جالية تعيش في تناغم</div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="card-content">
-                        <h3><i class="fas fa-brain"></i> بناء قدرات التفاعل العالمي</h3>
-                        <p>تسعى السياسات التعليمية إلى إكساب الطلاب المهارات اللازمة للتفاعل العالمي، بما في ذلك التفكير النقدي والإبداعي والابتكار.</p>
+                    <div class="stat-item">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">مؤشر التسامح المجتمعي</div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="card-content">
-                        <h3><i class="fas fa-graduation-cap"></i> التكامل العالمي</h3>
-                        <p>توائم الدولة أنظمتها التعليمية مع المعايير الدولية، من خلال المشاركة في الاختبارات العالمية مما يمكن الطلاب من المنافسة العالمية.</p>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">مؤتمر دولي استضافته</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">120</div>
+                        <div class="stat-label">جنسية في المدارس الحكومية</div>
                     </div>
                 </div>
             </div>
@@ -748,30 +802,36 @@
     <!-- قسم المبادرات -->
     <section id="initiatives">
         <div class="container">
-            <h2 class="section-title">مبادرات الإمارات</h2>
+            <h2 class="section-title">مبادرات رائدة في التفاهم العالمي</h2>
             <div class="initiative-timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>وزارة التسامح</h3>
-                        <p>أول وزارة من نوعها في العالم تهدف إلى تعزيز قيم التسامح والتعايش بين الثقافات المختلفة.</p>
+                        <h3>إعلان عام التسامح 2019</h3>
+                        <p>إطلاق حزمة من المبادرات والمشاريع لترسيخ قيم التسامح كممارسة مؤسسية ومجتمعية، وتكريس الإمارات عاصمة عالمية للتسامح.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>متحف اللوفر أبوظبي</h3>
-                        <p>يجسد حوار الحضارات ويعرض تحفاً فنية من مختلف الثقافات والديانات في مكان واحد.</p>
+                        <h3>البرنامج الوطني للتسامح</h3>
+                        <p>يشمل سبعة محاور استراتيجية تهدف إلى تعزيز قيم التسامح في المجتمع، وترسيخ ثقافة الانفتاح على الآخر.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>برنامج محمد بن راشد للتعلم الذكي</h3>
-                        <p>يهدف إلى خلق بيئة تعليمية وثقافية جديدة في المدارس الحكومية تعزز التفاهم العالمي.</p>
+                        <h3>وثيقة الأخوة الإنسانية 2019</h3>
+                        <p>توقيع وثيقة تاريخية بين فضيلة الإمام الأكبر أحمد الطيب وقداسة البابا فرنسيس، تحت رعاية الشيخ محمد بن زايد آل نهيان.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>مؤتمر الأخوة الإنسانية</h3>
-                        <p>استضافته الإمارات وجمع قادة دينيين من around the world لتعزيز الحوار بين الأديان.</p>
+                        <h3>إكسبو 2020 دبي</h3>
+                        <p>أكبر حدث دولي يجسد قيم التواصل الحضاري، بمشاركة 192 دولة، تحت شعار "تواصل العقول وصنع المستقبل".</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>متحف المستقبل</h3>
+                        <p>منصة عالمية للابتكار واستشراف المستقبل، تجمع الخبراء والمبتكرين من مختلف الثقافات لمواجهة التحديات العالمية.</p>
                     </div>
                 </div>
             </div>
@@ -781,35 +841,35 @@
     <!-- قسم القيم -->
     <section id="values">
         <div class="container">
-            <h2 class="section-title">قيم التفاهم العالمي</h2>
+            <h2 class="section-title">القيم المؤسسة للتفاهم العالمي</h2>
             <div class="values-grid">
                 <div class="value-item">
                     <div class="value-icon">
                         <i class="fas fa-heart"></i>
                     </div>
                     <h3>التسامح</h3>
-                    <p>تقبل الآخرين بغض النظر عن اختلافاتهم الثقافية أو الدينية أو العرقية.</p>
+                    <p>تقبل الآخرين بغض النظر عن اختلافاتهم الثقافية أو الدينية أو العرقية، والاحترام المتبادل بين جميع الأفراد.</p>
                 </div>
                 <div class="value-item">
                     <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>التعايش</h3>
-                    <p>القدرة على العيش والعمل معاً في سلام وتناغم رغم الاختلافات.</p>
+                    <p>القدرة على العيش والعمل معاً في سلام وتناغم رغم الاختلافات، والاستفادة من التنوع الثقافي.</p>
                 </div>
                 <div class="value-item">
                     <div class="value-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <h3>التعاون</h3>
-                    <p>العمل المشترك لتحقيق أهداف مشتركة بين الثقافات المختلفة.</p>
+                    <p>العمل المشترك لتحقيق أهداف مشتركة، وتبادل المعرفة والخبرات بين الثقافات المختلفة.</p>
                 </div>
                 <div class="value-item">
                     <div class="value-icon">
                         <i class="fas fa-globe"></i>
                     </div>
                     <h3>المواطنة العالمية</h3>
-                    <p>الوعي بالانتماء إلى مجتمع عالمي والمسؤولية تجاه قضاياه.</p>
+                    <p>الوعي بالانتماء إلى مجتمع عالمي والمسؤولية تجاه قضاياه، والمشاركة في صنع مستقبل أفضل للبشرية.</p>
                 </div>
             </div>
         </div>
@@ -822,7 +882,7 @@
                 <div class="footer-logo">
                     <i class="fas fa-globe-americas"></i>
                 </div>
-                <p>رحلة في عالم التفاهم - الإمارات العربية المتحدة</p>
+                <p>رؤية الإمارات للتفاهم العالمي - نموذج يُحتذى به في التواصل الحضاري</p>
             </div>
         </div>
     </footer>
